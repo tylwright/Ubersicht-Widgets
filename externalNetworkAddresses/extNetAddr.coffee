@@ -6,6 +6,6 @@ render: (output) ->
 	"<div>#{output}</div>"
 	
 style: """
-	margin-top: 170px;
+	margin-top: 200px;
 	margin-left: 200px;
 	"""
