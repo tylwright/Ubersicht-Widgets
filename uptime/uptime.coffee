@@ -1,6 +1,6 @@
 command: "python uptime/getUptime.py"
 
-refreshFrequency: 43200000
+refreshFrequency: 50000
 
 render: (output) ->
 	"<div>#{output}</div>"

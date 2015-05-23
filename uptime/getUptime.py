@@ -29,6 +29,9 @@ style = """label{
 
 print "<style>%s</style><label>Uptime</label><ul>" % style
 
-print "<li>%s Days</li>" % results
+if int(float(results)) == 1:
+	print "<li>%s Day</li>" % results
+else:
+	print "<li>%s Days</li>" % results
 	
 print "</ul>"
