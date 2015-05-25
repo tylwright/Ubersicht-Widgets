@@ -3,11 +3,14 @@
 
 import subprocess, re
 
-# External IP
 command = "uptime | awk '{print $3}'"
-results = subprocess.check_output(command, shell=True)
+number = subprocess.check_output(command, shell=True)
+command2 = "uptime | awk '{print $4}'"
+unit = subprocess.check_output(command2, shell=True)
 
-results = results.splitlines()[0]
+number = number.splitlines()[0]
+unit = unit.splitlines()[0]
+unit= re.sub(',','',unit)
 
 style = """label{
 			color: white;
@@ -29,9 +32,6 @@ style = """label{
 
 print "<style>%s</style><label>Uptime</label><ul>" % style
 
-if int(float(results)) == 1:
-	print "<li>%s Day</li>" % results
-else:
-	print "<li>%s Days</li>" % results
+print "<li>%s %s</li>" % (number, unit)
 	
 print "</ul>"
